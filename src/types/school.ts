@@ -1,6 +1,7 @@
 
 export interface Student {
   id: string;
+  autoId: number;
   firstName: string;
   lastName: string;
   birthDate: string;

@@ -5,14 +5,17 @@ import { useScheduleData } from './useScheduleData';
 
 export const useTeacherData = () => {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
+  const [nextTeacherId, setNextTeacherId] = useState(1);
   const { getScheduleByTeacher, deleteTeacherSchedule } = useScheduleData();
 
   const addTeacher = (teacherData: TeacherFormData) => {
     const newTeacher: Teacher = {
       ...teacherData,
       id: Date.now().toString(),
+      autoId: nextTeacherId,
       schedule: []
     };
+    setNextTeacherId(prev => prev + 1);
     setTeachers(prev => [...prev, newTeacher]);
   };
 
@@ -41,6 +44,7 @@ export const useTeacherData = () => {
 
   return {
     teachers,
+    nextTeacherId,
     addTeacher,
     updateTeacher,
     deleteTeacher,

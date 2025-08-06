@@ -147,6 +147,7 @@ export default function StudentTable({
             <Table>
               <TableHeader>
                 <TableRow>
+                  <TableHead>ID</TableHead>
                   <TableHead>Nom complet</TableHead>
                   <TableHead>N° étudiant</TableHead>
                   <TableHead>Classe</TableHead>
@@ -160,6 +161,9 @@ export default function StudentTable({
               <TableBody>
                 {filteredStudents.map((student) => (
                   <TableRow key={student.id}>
+                    <TableCell className="font-bold text-primary">
+                      #{student.autoId.toString().padStart(3, '0')}
+                    </TableCell>
                     <TableCell className="font-medium">
                       {student.firstName} {student.lastName}
                     </TableCell>

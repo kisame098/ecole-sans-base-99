@@ -51,6 +51,7 @@ const AppContent = () => {
           <Route path="/inscription" element={
             <Registration 
               classes={schoolData.classes} 
+              nextStudentId={schoolData.nextStudentId}
               onAddStudent={schoolData.addStudent} 
             />
           } />
@@ -65,6 +66,7 @@ const AppContent = () => {
           } />
           <Route path="/teacher-registration" element={
             <TeacherRegistration 
+              nextTeacherId={teacherData.nextTeacherId}
               onAddTeacher={teacherData.addTeacher}
             />
           } />

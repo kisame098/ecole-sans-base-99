@@ -9,10 +9,11 @@ import { toast } from "sonner";
 import { TeacherFormData } from "@/types/teacher";
 
 interface TeacherRegistrationProps {
+  nextTeacherId: number;
   onAddTeacher: (teacherData: TeacherFormData) => void;
 }
 
-export default function TeacherRegistration({ onAddTeacher }: TeacherRegistrationProps) {
+export default function TeacherRegistration({ nextTeacherId, onAddTeacher }: TeacherRegistrationProps) {
   const [formData, setFormData] = useState<TeacherFormData>({
     firstName: "",
     lastName: "",
@@ -64,6 +65,21 @@ export default function TeacherRegistration({ onAddTeacher }: TeacherRegistratio
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* ID automatique */}
+            <div className="bg-muted/50 p-4 rounded-lg border">
+              <div className="text-center">
+                <Label className="text-lg font-semibold text-primary">
+                  ID Professeur
+                </Label>
+                <div className="text-3xl font-bold text-primary mt-1">
+                  #{nextTeacherId.toString().padStart(3, '0')}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Identifiant auto-généré
+                </p>
+              </div>
+            </div>
+            
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName">Prénom *</Label>

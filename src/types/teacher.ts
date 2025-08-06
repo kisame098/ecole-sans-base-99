@@ -1,6 +1,7 @@
 
 export interface Teacher {
   id: string;
+  autoId: number;
   firstName: string;
   lastName: string;
   subject: string;

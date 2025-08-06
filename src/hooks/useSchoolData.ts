@@ -4,6 +4,7 @@ import { Student, SchoolClass, StudentFormData } from '@/types/school';
 export const useSchoolData = () => {
   const [students, setStudents] = useState<Student[]>([]);
   const [classes, setClasses] = useState<SchoolClass[]>([]);
+  const [nextStudentId, setNextStudentId] = useState(1);
 
   // Class management
   const addClass = (className: string) => {
@@ -25,8 +26,10 @@ export const useSchoolData = () => {
   const addStudent = (studentData: StudentFormData) => {
     const newStudent: Student = {
       id: Date.now().toString(),
+      autoId: nextStudentId,
       ...studentData
     };
+    setNextStudentId(prev => prev + 1);
     setStudents(prev => {
       const updated = [...prev, newStudent];
       // Mettre à jour le comptage immédiatement
@@ -89,6 +92,7 @@ export const useSchoolData = () => {
   return {
     students,
     classes,
+    nextStudentId,
     addClass,
     deleteClass,
     addStudent,

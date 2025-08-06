@@ -77,10 +77,15 @@ export default function TeacherManagement({ teachers, onUpdateTeacher, onDeleteT
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-3">
-                      <div>
-                        <div className="text-xl">{teacher.firstName} {teacher.lastName}</div>
-                        <div className="text-sm text-muted-foreground font-normal">
-                          {teacher.subject}
+                      <div className="flex items-center gap-3">
+                        <div className="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm font-bold">
+                          #{teacher.autoId.toString().padStart(3, '0')}
+                        </div>
+                        <div>
+                          <div className="text-xl">{teacher.firstName} {teacher.lastName}</div>
+                          <div className="text-sm text-muted-foreground font-normal">
+                            {teacher.subject}
+                          </div>
                         </div>
                       </div>
                     </CardTitle>

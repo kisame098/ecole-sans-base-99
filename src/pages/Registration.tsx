@@ -10,10 +10,11 @@ import { generateStudentReceipt } from "@/utils/receiptGenerator";
 
 interface RegistrationProps {
   classes: Array<{ id: string; name: string }>;
+  nextStudentId: number;
   onAddStudent: (studentData: StudentFormData) => void;
 }
 
-export default function Registration({ classes, onAddStudent }: RegistrationProps) {
+export default function Registration({ classes, nextStudentId, onAddStudent }: RegistrationProps) {
   const [formData, setFormData] = useState<StudentFormData>({
     firstName: "",
     lastName: "",
@@ -76,6 +77,21 @@ export default function Registration({ classes, onAddStudent }: RegistrationProp
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* ID automatique */}
+            <div className="bg-muted/50 p-4 rounded-lg border">
+              <div className="text-center">
+                <Label className="text-lg font-semibold text-primary">
+                  ID Étudiant
+                </Label>
+                <div className="text-3xl font-bold text-primary mt-1">
+                  #{nextStudentId.toString().padStart(3, '0')}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Identifiant auto-généré
+                </p>
+              </div>
+            </div>
+            
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName">Prénom *</Label>
