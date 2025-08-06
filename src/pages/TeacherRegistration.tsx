@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -70,9 +69,9 @@ export default function TeacherRegistration({ nextTeacherId, onAddTeacher }: Tea
               <Label htmlFor="teacherId">ID</Label>
               <Input
                 id="teacherId"
-                value={`#${nextTeacherId.toString().padStart(3, '0')}`}
+                value={nextTeacherId.toString().padStart(3, '0')}
                 disabled
-                className="w-1/3 text-sm font-mono"
+                className="w-1/6 text-sm font-mono"
               />
             </div>
             

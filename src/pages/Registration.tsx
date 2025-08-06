@@ -82,9 +82,9 @@ export default function Registration({ classes, nextStudentId, onAddStudent }: R
               <Label htmlFor="studentId">ID</Label>
               <Input
                 id="studentId"
-                value={`#${nextStudentId.toString().padStart(3, '0')}`}
+                value={nextStudentId.toString().padStart(3, '0')}
                 disabled
-                className="w-1/3 text-sm font-mono"
+                className="w-1/6 text-sm font-mono"
               />
             </div>
             
