@@ -66,11 +66,14 @@ export default function TeacherRegistration({ nextTeacherId, onAddTeacher }: Tea
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* ID automatique */}
-            <div className="flex items-center gap-2 mb-2">
-              <Label className="text-sm font-medium text-muted-foreground">ID:</Label>
-              <div className="bg-muted px-2 py-1 rounded text-sm font-mono text-primary">
-                #{nextTeacherId.toString().padStart(3, '0')}
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="teacherId">ID</Label>
+              <Input
+                id="teacherId"
+                value={`#${nextTeacherId.toString().padStart(3, '0')}`}
+                disabled
+                className="w-1/3 text-sm font-mono"
+              />
             </div>
             
             <div className="grid grid-cols-2 gap-4">
